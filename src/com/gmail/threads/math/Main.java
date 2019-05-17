@@ -16,10 +16,10 @@ public class Main {
 		 * номеру �?того потока, и выводить результат на �?кран.
 		 */
 
-//		for (int i = 1; i <= 100; i++) {
-//			Thread threadI = new Thread(new FactorialThread(i), "Tread #"+i);
-//			threadI.start();
-//		}
+		for (int i = 1; i <= 100; i++) {
+			Thread threadI = new Thread(new FactorialThread(i), "Tread #"+i);
+			threadI.start();
+		}
 		System.out.println("---------------------------------------------");
 		
 		/**

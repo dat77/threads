@@ -15,11 +15,21 @@ public class Main {
 		 * 1) Создайте �?то потоков, которые будут вычи�?л�?ть факториал чи�?ла, равного
 		 * номеру �?того потока, и выводить результат на �?кран.
 		 */
+		
+		Thread[] threadI = new Thread[100];
 
-		for (int i = 1; i <= 100; i++) {
-			Thread threadI = new Thread(new FactorialThread(i), "Tread #"+i);
-			threadI.start();
+		for (int i = 1; i <= threadI.length; i++) {
+			threadI[i-1] = new Thread(new FactorialThread(i), "Tread #"+i);
+			threadI[i-1].start();
 		}
+		for (int i = 0; i < threadI.length; i++) {
+			try {
+				threadI[i].join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		System.out.println("---------------------------------------------");
 		
 		/**
